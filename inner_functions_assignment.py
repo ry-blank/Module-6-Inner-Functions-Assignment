@@ -11,16 +11,24 @@ list of numbers.
 
 def measurements(measurement_list):
     def area(area_list):
-        area_result = 1
-        for i in area_list:
-            area_result *= i
-        return area_result
+        if len(area_list) > 1:
+            area_result = 1
+            for l in area_list:
+                area_result *= l
+            return area_result
+        else:
+            area_squared = area_list[0] * area_list[0]
+            return area_squared
 
     def perimeter(perimeter_list):
-        perimeter_result = 0
-        for i in perimeter_list:
-            perimeter_result += i
-        return perimeter_result * 2
+        if len(perimeter_list) > 1:
+            perimeter_result = 0
+            for l in perimeter_list:
+                perimeter_result += l
+            return perimeter_result * 2
+        else:
+            perimeter_squared = perimeter_list[0] * 4
+            return perimeter_squared
 
     area = area(measurement_list)
     perimeter = perimeter(measurement_list)
@@ -28,4 +36,4 @@ def measurements(measurement_list):
 
 
 if __name__ == '__main__':
-    print(measurements([2.1, 3.4]))
+    print(measurements([0, 0]))
